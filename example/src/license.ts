@@ -1,0 +1,21 @@
+/**
+ * Demo FP1 licenses — bound to applicationId / bundle id below.
+ * Request a new key if you change the id.
+ */
+import { Platform } from 'react-native';
+
+/** Android demo applicationId */
+export const ANDROID_APPLICATION_ID = 'com.faceplugin.facerecognitionsdk';
+
+/** iOS demo bundle id (Apple App ID for this team) */
+export const IOS_BUNDLE_ID = 'com.faceplugin.facerecognition.app';
+
+const ANDROID_LICENSE =
+  'FP1.RlBMMQMAAQDJx5NBpyjuxrTSuz8MAgAASPNMFWCS7q6vchdPDy23dWUgdnJm6T5LgA4HdMSGYv1yOd+oLCfrwRrNPknfqxACqbYHDTxu1SIMVNekHZW0lBnrkLNZvHNprQnTA/8GJ0XBhcT3+kUpasAT9GMzdBT5g7gM+FV8KTT2P71rWtYOIpDszqjhTpXBh0ZkSpRHFVftBlT+W94+4gLQmSg2VF6hMoPMazski4Llav+mfpgnoRDR67tcWhUyuf+wOnOS/v3uyhoE8AqXdpJKqhB4aVEXC/ZtjnQFuJwdANDSWRtzYBYX/Yb5rhzBc0c/p71ZcbP+ye054XUniZokjA/ZrQ+r4tftcAtF69sFiU60km2q6CtRu4tbQpL34YC2ztJPaLywBlwQz0lmEwXbKHmCHOc9SzdaYDWHt7lIgkxaEYztKGDjFzP0coB4R2MzKhh9vcZQePxo8TSwbZqBLb7Sk3BpZ6NYQKbM6iEwEd6VB8of2Meqc4/IJtBP9Yp6Q4P3FoIiZ+m5+Ik/P9O/Cb12zleqNLMU5qTibURBUGB0P/LCo3ueMUhlRBGz4cmbSw/OZifKrfw96axxo1uDyCi2qYIG0mTyXpQX0KW+r/aJ+3CosIukmabvPU3M/PO8Bbnem5P9udecXHsbmfgShAXQ5mDkMIhJQaB3zPwAIl5Agp2T/YRY+11bb5jN3zF7pLGQbgVc3VnDZcwv/hnsLviKADCBhwJCAIO0bZgO621nFz0Yup29vR45IcsQ7MdRHZkMs8LQk2EGwrR6gEn0Peu9Inxc25JXYUBPBN1rjWPyGW1dE4VTWQi6AkFnsguhXcZi1rnPz5et2fWhhzHPMk5wmt2cDrS62JkV0gXYFI4E8O+b2PVFHhkBO92m/kwXy2VsUk0VAQWItd///w==';
+
+const IOS_LICENSE =
+  'FP1.RlBMMQMAAQBRd7YXphKTsuScCyMJAgAAhoo0FQMD14LDxdAIXnGb9YY3j6ixGJEBguNlNIZ0lK9W6m0b97Mo5mnxfgyX9ln71am4N0PEb5NDRGqT2fWDJwq4MF+H7fc4q3x1Fjox5BikKKWVfaKtQhviOMyPXoha1LIZQXJkTocEXJHQg3V/AKXOcdGcgv8OQ0R6UV7sPCCu66b9jtAR7ZBhJIeKze9xFGKM81tQsxaswvLxHGMl+1sbQpXPA/+7D/qnDM9nzEJn2TD4YKQcmhVhZFcKB0aMqME0yQhQlKvTEfR9dHLmSfIuQxkMvSGWXZWOLS5OYiBVRt4hVVPgVc0bwzvHm0CsMiYAKZ861ubMWdGT/lNiXPxgsifMEdXsqzv09RD0p7JjdhXD4nYgv3mNJwYbCls30UzkBq9IUu3Y5hZfYEGnnoK2zI1tDmnObAT4l+bNBbERshHEnKtL0Ht03ZEB9NN/dqOjsmPiLf8J7WTclVscWV3aOFDzQJMmjHh2bDT30RBjSsIRdlaJNyU3iLKXE3jelKmnOU6No7JInb4f+EPLUpDyghOouJL4pdiCgxkroRYG7VUc8RO2i2r4BMDcgkSj13JBij9g9G/UHUFjkh+rpzIzRR8jUm2OvqEoumwCuFInnEbv2X889Mi/Y/Fq0PuWTwZ72tSHYsMc3lmANbPeBVZgOcppiiLwMVKol5T6zhcYPWgSPRRiytiLADCBiAJCAWPTjrXmiHhtgG+Kb/mFDrSn3ECPz2dhe6JWAlTYFvvGcGI8UL7iEYfnABq747W8ADpsSwTmFekDd5T/fjdF4MLxAkIByJ0V6SL5nsg1Ms1jtoBwed190hwTi7vKsPlePitp22HbTzYmvg3LpNb/X0ktQkKBKsN51OSCac3+QS4waP86ook=';
+
+export function demoLicense(): string {
+  return Platform.OS === 'ios' ? IOS_LICENSE : ANDROID_LICENSE;
+}
