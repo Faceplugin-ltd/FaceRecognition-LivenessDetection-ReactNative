@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Windows:  python run_ios          (prints that iOS needs a Mac)
-# macOS:    python3 run_ios   or  ./run_ios
+# Windows:  python run_ios.py          (prints that iOS needs a Mac)
+# macOS:    python3 run_ios.py   or  ./run_ios.py
 """Deploy the iOS demo to a plugged-in iPhone. macOS + Xcode; the same file runs on Windows and explains that."""
 from __future__ import annotations
 
@@ -252,7 +252,7 @@ def maui_ios() -> None:
 
 def main() -> None:
     if not IS_MAC:
-        die("iOS builds need macOS and Xcode. Use python run_android on this machine.")
+        die("iOS builds need macOS and Xcode. Use python run_android.py on this machine.")
     kind = stack()
     print(f"{ROOT.name}: ios ({kind})")
     {

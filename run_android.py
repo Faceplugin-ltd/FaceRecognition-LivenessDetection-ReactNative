@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Windows:  python run_android
-# macOS:    python3 run_android   or  ./run_android
+# Windows:  python run_android.py
+# macOS:    python3 run_android.py   or  ./run_android.py
 """Deploy the Android demo to a plugged-in phone. Works on Windows and macOS."""
 from __future__ import annotations
 
