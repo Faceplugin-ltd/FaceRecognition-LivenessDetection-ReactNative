@@ -151,13 +151,13 @@ export const S = {
   matching: 'Matching',
   match_threshold: 'Match threshold',
   threshold_help:
-    'Luxand FaceSDK standard identity verification is 0.80. A gallery face matches at or above this value. 0.70 is convenience, 0.90 is high security.',
+    'The standard threshold for identity verification is 0.80. A gallery face matches at or above this value. 0.70 is convenience, 0.90 is high security.',
   skip_review: 'Skip the capture review',
   skip_review_help:
     'Enroll straight away when every check passes. A capture that fails one still opens the review, so you can see why.',
   liveness_check: 'Liveness check',
   liveness_help:
-    'Reject photos of photos and screens before identifying. Luxand counts a face as live when its score is above 0.5.',
+    'Reject photos of photos and screens before identifying. A face counts as live when its score is above 0.5.',
   liveness_threshold: 'Liveness',
   yaw_threshold: 'Yaw',
   roll_threshold: 'Roll',

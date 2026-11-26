@@ -16,7 +16,7 @@ import kotlin.math.min
 import kotlin.math.roundToInt
 
 internal object ImageUtils {
-  /** Same cap the LX SDK uses internally, so face boxes come back in this bitmap's coordinates. */
+  /** Same cap the engine uses internally, so face boxes come back in this bitmap's coordinates. */
   const val ENGINE_MAX_SIDE = 1280
 
   fun bitmapFromUri(context: Context, uriString: String): Bitmap? {

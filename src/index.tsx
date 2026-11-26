@@ -76,7 +76,7 @@ export type FaceBox = {
   left_eye_closed?: number;
   right_eye_closed?: number;
   face_occlusion?: number;
-  /** Mouth openness 0..1 (LX engine). null / absent when not computed (e.g. iOS). */
+  /** Mouth openness 0..1. null / absent when not computed (e.g. iOS). */
   mouth_opened?: number | null;
   age?: number;
   gender?: number;
@@ -94,7 +94,7 @@ export type FaceBox = {
   attributes?: Record<string, string>;
   landmarkCount?: number;
   landmarks?: number[];
-  /** Detection confidence (LX engine). null when the engine does not report it. */
+  /** Detection confidence. null when the engine does not report it. */
   score?: number | null;
   /** Raw face quality 0..1. null when not computed. */
   quality?: number | null;

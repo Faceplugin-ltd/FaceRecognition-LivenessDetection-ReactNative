@@ -1,6 +1,6 @@
 # iOS frameworks
 
-Same LX runtimes as `Face-Recognition-LivenessDetection-iOS`:
+Same runtimes as `Face-Recognition-LivenessDetection-iOS`:
 
 - `facerecognitionsdk.framework`
 - `FacePluginSDK.xcframework`

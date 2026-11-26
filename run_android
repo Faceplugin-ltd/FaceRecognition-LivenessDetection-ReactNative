@@ -82,7 +82,6 @@ def ensure_aar(dest: Path) -> None:
     apps = ROOT.parent
     for src in (
         apps / "Face-Recognition-LivenessDetection-Android" / "libs" / "facerecognitionsdk.aar",
-        ROOT.parents[1] / "SDKs" / "Face-Recognition-LivenessDetection-Android-LX-SDK" / "dist" / "facerecognitionsdk.aar",
     ):
         if copy_if_missing(src, dest):
             return

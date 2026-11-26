@@ -1,5 +1,5 @@
 #!/bin/bash
-# Re-sign LX Face Recognition frameworks copied into the app (device installs).
+# Re-sign Face Recognition frameworks copied into the app (device installs).
 set -euo pipefail
 
 if [ "${PLATFORM_NAME:-}" = "iphonesimulator" ]; then

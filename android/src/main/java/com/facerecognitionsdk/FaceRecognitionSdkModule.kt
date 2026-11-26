@@ -24,12 +24,12 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * React Native bridge over the LX Face Recognition SDK AAR
+ * React Native bridge over the Face Recognition SDK AAR
  * (FaceRecognitionSDK.activate / init / Image.detect / Image.template / similarity).
  *
  * Every SDK call runs on one single-thread executor, so calls are serialized.
  * The legacy bridge API (faceDetection, templateExtraction, VideoWorker, …) is kept
- * and mapped onto the LX API; VideoWorker is emulated per ingested frame.
+ * and mapped onto the engine API; VideoWorker is emulated per ingested frame.
  */
 class FaceRecognitionSdkModule(private val reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext), ActivityEventListener {
@@ -76,7 +76,7 @@ class FaceRecognitionSdkModule(private val reactContext: ReactApplicationContext
     "LANDMARK_MODE_468" to 468,
     "MATCH_THRESHOLD" to FaceRecognitionSDK.MATCH_THRESHOLD.toDouble(),
     "LIVENESS_THRESHOLD" to FaceRecognitionSDK.LIVENESS_THRESHOLD.toDouble(),
-    "ENGINE" to "lx",
+    "ENGINE" to "faceplugin",
     "SDK_VERSION" to "Face Recognition SDK",
     "FILES_DIR" to reactContext.filesDir.absolutePath,
     "SUPPORTS_SMILE" to true,
@@ -178,7 +178,7 @@ class FaceRecognitionSdkModule(private val reactContext: ReactApplicationContext
     }
   }
 
-  /** The LX engine has one landmark set; the mode is remembered for API compatibility only. */
+  /** The engine has one landmark set; the mode is remembered for API compatibility only. */
   @ReactMethod
   fun setLandmarkMode(mode: Int, promise: Promise) {
     landmarkMode = mode
@@ -194,7 +194,7 @@ class FaceRecognitionSdkModule(private val reactContext: ReactApplicationContext
   fun estimatorStatus(promise: Promise) {
     promise.resolve(
       JSONObject()
-        .put("engine", "lx")
+        .put("engine", "faceplugin")
         .put("liveness", true)
         .put("quality", true)
         .put("pose", true)
@@ -359,7 +359,7 @@ class FaceRecognitionSdkModule(private val reactContext: ReactApplicationContext
     n
   }
 
-  // ---------------------------------------------------------------- legacy API on LX
+  // ---------------------------------------------------------------- legacy API
 
   @ReactMethod
   fun detect(imageUri: String, crop: Boolean, flags: Double, promise: Promise) = run(promise, "E_DETECT") {
@@ -727,7 +727,7 @@ class FaceRecognitionSdkModule(private val reactContext: ReactApplicationContext
   private fun numOrNull(v: Float): Any = if (v.isNaN()) JSONObject.NULL else v.toDouble()
 
   /**
-   * One LX face in the FaceBox JSON shape (legacy fields kept), plus the raw LX values.
+   * One face in the FaceBox JSON shape (legacy fields kept), plus the raw engine values.
    * Values the engine did not compute are null (raw) / 0 or "" (legacy fields).
    */
     // Keep the original SDK result across the JSON bridge, never re-detect by box.
