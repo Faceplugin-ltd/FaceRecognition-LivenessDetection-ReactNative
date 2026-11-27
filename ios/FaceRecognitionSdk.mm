@@ -806,7 +806,7 @@ static NSString *FRSJpegBase64(UIImage *image)
 }
 
 #ifndef FRS_HAS_SDK
-#define FRS_MISSING_REJECT(promise) reject(@"E_SDK", @"facerecognitionsdk.framework not linked. Download from Google Drive and place under ios/Frameworks/.", nil)
+#define FRS_MISSING_REJECT(promise) reject(@"E_SDK", @"facerecognitionsdk.framework not linked. Download runtime.zip from FaceRecognition-LivenessDetection-iOS Releases and place under ios/Frameworks/.", nil)
 #endif
 
 RCT_EXPORT_METHOD(getMachineCode:(RCTPromiseResolveBlock)resolve

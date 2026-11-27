@@ -133,4 +133,14 @@ dependencies {
     }
 }
 
-apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+def rnCliNativeModules = [
+    file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"),
+    file("../../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"),
+].find { it.exists() }
+if (rnCliNativeModules == null) {
+    throw new GradleException(
+        "Missing @react-native-community/cli-platform-android. From the repo root run: yarn install"
+    )
+}
+apply from: rnCliNativeModules
+applyNativeModulesAppBuildGradle(project)

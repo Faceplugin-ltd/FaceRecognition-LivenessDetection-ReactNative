@@ -18,7 +18,33 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = 'facerecognitionsdk.example'
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+
+// Prefer example/node_modules (Yarn workspaces with nmHoistingLimits: workspaces).
+// Fall back to the repo-root hoist so a broken npm-only install still finds the CLI.
+def rnCliNativeModules = [
+    file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"),
+    file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"),
+].find { it.exists() }
+if (rnCliNativeModules == null) {
+    throw new GradleException(
+        "Missing @react-native-community/cli-platform-android.\n" +
+        "From the repo root run: yarn install\n" +
+        "(This is a Yarn workspace — do not use npm install.)"
+    )
+}
+apply from: rnCliNativeModules
+applyNativeModulesSettingsGradle(settings)
+
 include ':app'
 include ':libfacesdk'
-includeBuild('../node_modules/@react-native/gradle-plugin')
+
+def rnGradlePlugin = [
+    file("../node_modules/@react-native/gradle-plugin"),
+    file("../../node_modules/@react-native/gradle-plugin"),
+].find { it.exists() }
+if (rnGradlePlugin == null) {
+    throw new GradleException(
+        "Missing @react-native/gradle-plugin. From the repo root run: yarn install"
+    )
+}
+includeBuild(rnGradlePlugin)
