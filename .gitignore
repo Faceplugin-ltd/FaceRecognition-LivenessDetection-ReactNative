@@ -78,6 +78,9 @@ lib/
 *.aar
 example/android/libfacesdk/**/*.aar
 example/android/libfacesdk/**/*.so
+# Do not vendor RN AARs here — incomplete metadata breaks solo clones (Gradle
+# prefers this over Maven Central). Resolve react-android / hermes-android online.
+example/android/local-m2/
 ios/Frameworks/**/*.framework/**
 !ios/Frameworks/README.md
 ios/Frameworks/**/*.xcframework/

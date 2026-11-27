@@ -1,6 +1,5 @@
 pluginManagement {
     repositories {
-        maven { url = uri("${rootDir}/local-m2") }
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -10,7 +9,6 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
-        maven { url = uri("${rootDir}/local-m2") }
         google()
         mavenCentral()
         maven { url = uri("https://www.jitpack.io") }
